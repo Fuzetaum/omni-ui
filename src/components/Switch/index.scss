@@ -1,0 +1,43 @@
+.omni-ui-switch {
+  height: 1em;
+  width: 4em;
+  border-radius: 100px;
+  padding: 0.1em 0;
+  position: relative;
+  transition: all 0.3s ease-out;
+
+  &>div {
+    display: inline-block;
+    cursor: pointer;
+    width: 0.9em;
+    height: 0.9em;
+    border-radius: 100px;
+    position: absolute;
+    left: 0.2em;
+
+    transition: all 0.3s ease-out, width 0.1s ease-in;
+
+    &:active {
+      width: 1.1em;
+    }
+  }
+
+  & p {
+    display: inline-block;
+    margin: 0;
+    margin-left: 1.5em;
+    margin-right: 4px;
+    height: 100%;
+  }
+}
+
+.omni-ui-switch-checked {
+  &>div {
+    left: calc(100% - 0.2em);
+    transform: translateX(-100%);
+  }
+
+  & p {
+    margin-left: 4px;
+  }
+}

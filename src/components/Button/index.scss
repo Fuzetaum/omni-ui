@@ -1,0 +1,43 @@
+.omni-ui-button {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border-style: solid;
+
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+
+  transition: background-color 0.5s ease-out,
+    color 0.5s ease-out,
+    top 0.1s ease-in, box-shadow 0.1s ease-in;
+}
+
+.omni-ui-button:hover {
+  top: 1px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+}
+
+.omni-ui-button:active {
+  top: 2px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.omni-ui-button:focus {
+  outline: none;
+}
+
+.omni-ui-button-disabled {
+  cursor: not-allowed;
+
+  &>i.lds-ring {
+    height: 0.9em;
+  }
+}
+
+.omni-ui-button-disabled:hover,
+.omni-ui-button-disabled:active {
+  top: 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}

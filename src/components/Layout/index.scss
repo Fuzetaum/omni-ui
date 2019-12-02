@@ -1,0 +1,106 @@
+.omni-ui-layout-horizontal,
+.omni-ui-layout-vertical {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.omni-ui-layout-horizontal {
+  flex-direction: row-reverse;
+
+  >.omni-ui-footer {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    height: 15%;
+    width: 100%;
+  }
+}
+
+.omni-ui-layout-vertical {
+  flex-direction: column-reverse;
+}
+
+.omni-ui-content {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+  transition: background-color 0.5s ease-out;
+}
+
+.omni-ui-footer {
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 15%;
+  padding: 0 10px;
+  transition: background-color 0.5s ease-out;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+  }
+}
+
+.omni-ui-header {
+  height: 15%;
+  position: relative;
+  transition: all 1s ease-in;
+
+  &>.omni-ui-layout-shadow-box {
+    height: 12px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background-image: linear-gradient(to bottom, black, transparent);
+  }
+
+  &>.omni-ui-header-content {
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    transition: all 1s ease-in, background-color 0.5s ease-out;
+  }
+}
+
+.omni-ui-side-menu {
+  width: 20%;
+  display: block;
+  position: relative;
+  transition: width 0.8s ease-in-out;
+
+  &>.omni-ui-layout-shadow-box {
+    height: 100%;
+    width: 12px;
+    position: absolute;
+    right: -6px;
+    top: 0;
+    background-image: linear-gradient(to right, black, transparent);
+  }
+
+  &>.omni-ui-side-menu-content {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in, background-color 0.5s ease-out;
+  }
+}
+
+.omni-ui-side-menu-collapsed {
+  width: 10%;
+}
