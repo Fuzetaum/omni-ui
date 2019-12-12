@@ -10,7 +10,7 @@
     "node": ">= 10.16.0"
   },
   "scripts": {
-    "build": "build-storybook",
+    "build:storybook": "build-storybook",
     "start": "start-storybook -p 6006",
     "build:dist": "rm -r dist\\ && yarn build:babel && yarn build:sass",
     "build:babel": "babel src --out-dir dist --config-file ./dist.babel.json",
