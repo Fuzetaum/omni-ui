@@ -137,7 +137,7 @@ const Layout = ({ children, style, ...remainingProps }) => {
       style={style}
       {...remainingProps}
     >
-      {Array.from(children).reverse()}
+      {children}
     </section>
   );
 };

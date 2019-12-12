@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { darken } from '../../colorMath';
 
@@ -16,45 +16,43 @@ import './index.scss';
 const Switch = ({
   checked,
   checkedLabel,
-  interruptorStyle,
+  sliderStyle,
   style,
   uncheckedLabel,
+  onChange,
   ...remainingProps
 }) => {
-  const [isOn, setIsOn] = useState(checked);
-
   return (
     <>
       <div
         {...remainingProps}
-        className={`omni-ui-switch ${isOn ? 'omni-ui-switch-checked' : ''}`}
+        className={`omni-ui-switch ${checked ? 'omni-ui-switch-checked' : ''}`}
         style={{
           ...style,
           backgroundColor: style.backgroundColor || (
-            isOn ? THEME_PRIMARY_COLOR_DARK : THEME_DEFAULT_COLOR_DARK),
+            checked ? THEME_PRIMARY_COLOR_DARK : THEME_DEFAULT_COLOR_DARK),
           borderColor: style.borderColor || (
-            isOn ? THEME_PRIMARY_COLOR_BRIGHT : darken(THEME_DEFAULT_COLOR_DARK, 0.1)),
+            checked ? THEME_PRIMARY_COLOR_BRIGHT : darken(THEME_DEFAULT_COLOR_DARK, 0.1)),
           borderWidth: style.borderWidth || '2px',
           borderStyle: style.borderStyle || 'solid',
         }}
+        onClick={() => onChange(!checked)}
       >
-        {isOn ? null : (
-          <p style={{ color: style.color || THEME_DEFAULT_COLOR_TEXT }}>
-            {uncheckedLabel}
-          </p>
-        )}
-        <div
-          style={{
-            ...interruptorStyle,
-            backgroundColor: interruptorStyle.backgroundColor || THEME_PRIMARY_COLOR_BRIGHT,
+        <span
+          className="omni-ui-switch-label"
+          style={{ color: style.color || (
+            checked ? THEME_PRIMARY_COLOR_TEXT : THEME_DEFAULT_COLOR_TEXT),
           }}
-          onClick={() => setIsOn(!isOn)}
+        >
+          {checked ? checkedLabel : uncheckedLabel}
+        </span>
+        <span
+          className="omni-ui-switch-slider"
+          style={{
+            ...sliderStyle,
+            backgroundColor: sliderStyle.backgroundColor || THEME_PRIMARY_COLOR_BRIGHT,
+          }}
         />
-        {isOn ? (
-          <p style={{ color: style.color || THEME_PRIMARY_COLOR_TEXT }}>
-            {checkedLabel}
-          </p>
-        ) : null}
       </div>
     </>
   );
@@ -63,17 +61,19 @@ const Switch = ({
 Switch.propTypes = {
   checked: PropTypes.bool,
   checkedLabel: PropTypes.node,
-  interruptorStyle: PropTypes.object,
+  sliderStyle: PropTypes.object,
   style: PropTypes.object,
   uncheckedLabel: PropTypes.node,
+  onChange: PropTypes.func,
 };
 
 Switch.defaultProps = {
   checked: false,
-  checkedLabel: null,
-  interruptorStyle: {},
+  checkedLabel: ' ',
+  sliderStyle: {},
   style: {},
-  uncheckedLabel: null,
+  uncheckedLabel: ' ',
+  onChange: () => {},
 };
 
 export default Switch;
