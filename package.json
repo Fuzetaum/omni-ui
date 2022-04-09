@@ -43,7 +43,7 @@
     "stylelint": "11.0.0"
   },
   "dependencies": {
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "prop-types": "15.7.2",
     "react": "16.10.2",
     "react-dom": "16.10.2"
