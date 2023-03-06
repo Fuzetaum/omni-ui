@@ -1,0 +1,10 @@
+@import "../submodules/design-system/build/scss/colors.scss";
+
+@function getColor($theme, $token) {
+  @if $theme == "dark" {
+    @return map-get(darkTheme, $token);
+  }
+  @else {
+    @return map-get(lightTheme, $token);
+  }
+}

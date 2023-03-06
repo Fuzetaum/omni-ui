@@ -1,0 +1,21 @@
+<%
+const createThemeTokenArray = (array) => {
+  return array.flatMap(token => {
+    if (!token.value) {
+      return createThemeTokenArray(Object.keys(token).map(key => token[key]));
+    }
+    return token;
+  });
+};
+
+const parseTokens = (theme) => '\n'.concat(theme.map(token => {
+  const name = token.path.slice(2).join('.');
+  return `\t"${name}": ${token.value},`;
+}).join('\n')).concat('\n');
+
+const lightTheme = createThemeTokenArray(Object.keys(tokens.light).map(key => tokens.light[key]));
+const darkTheme = createThemeTokenArray(Object.keys(tokens.dark).map(key => tokens.dark[key]));
+
+%>$lightTheme: (<%- parseTokens(lightTheme) %>);
+
+$darkTheme: (<%- parseTokens(darkTheme) %>);

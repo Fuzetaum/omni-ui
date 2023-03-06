@@ -1,0 +1,24 @@
+{
+  "color": {
+    "dark": {
+      "danger": {
+        "bright": { "value": "{color.global.red.01.value}" },
+        "medium": { "value": "{color.global.red.02.value}" },
+        "dark": { "value": "{color.global.red.03.value}" },
+        "text": { "value": "{color.global.black.value}" }
+      },
+      "neutral": {
+        "bright": { "value": "{color.global.black.value}" },
+        "medium": { "value": "{color.global.gray.02.value}" },
+        "dark": { "value": "{color.global.gray.03.value}" },
+        "text": { "value": "{color.global.white.value}" }
+      },
+      "primary": {
+        "bright": { "value": "{color.global.blue.01.value}" },
+        "medium": { "value": "{color.global.blue.02.value}" },
+        "dark": { "value": "{color.global.blue.03.value}" },
+        "text": { "value": "{color.global.gray.01.value}" }
+      }
+    }
+  }
+}

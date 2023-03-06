@@ -1,0 +1,64 @@
+@import "../../mixins/color.scss";
+
+.omni-ui-button {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border-style: solid;
+
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+
+  transition: background-color 0.5s ease-out,
+    color 0.5s ease-out,
+    top 0.1s ease-in, box-shadow 0.1s ease-in;
+
+    &:hover {
+      top: 1px;
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      top: 2px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    &:focus {
+      outline: none;
+    }
+}
+
+.omni-ui-button-disabled {
+  cursor: not-allowed;
+  background-color: #CCC;
+  border-color: #A3A3A3;
+  color: #8C8C8C;
+
+  &:hover, &:active {
+    top: 0;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  &>i.lds-ring {
+    height: 0.9em;
+  }
+}
+
+@each $theme in ("light", "dark") {
+  @each $type in ("caution", "default", "primary") {
+    .omni-ui-button-#{$type}-#{$theme} {
+      background-color: getColor($theme, "#{$type}.bright");
+      border-color: getColor($theme, "#{$type}.medium");
+      color: getColor($theme, "#{$type}.text");
+  
+      @if $type != "default" {
+        &:hover {
+          background-color: darken(getColor($theme, "#{$type}.bright"), 10%);
+          border-color: darken(getColor($theme, "#{$type}.medium"), 10%);
+        }
+      }
+    }
+  }
+}

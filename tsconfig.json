@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+      "declarationDir": "./dist/",
+      "declaration": true,
+      "emitDeclarationOnly": true,
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "jsx": "react",
+      "target": "ES5"
+  },
+  "include": [
+      "./src/**/*"
+  ],
+  "exclude": [
+      "./src/**/*.test.tsx",
+      "./src/**/*.stories.tsx",
+  ]
+}
